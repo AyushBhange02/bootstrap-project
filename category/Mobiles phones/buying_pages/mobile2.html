@@ -118,6 +118,40 @@
         border-color: transparent;
         color: #000000;
       }
+      /* ofcanvas section */
+      .offcanvas-center {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            max-width: 700px;
+            height: auto;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1055;
+            padding: 2rem;
+            display: none;
+        }
+
+        .offcanvas-center.show {
+            display: block;
+        }
+
+        .offcanvas-center input {
+            margin-bottom: 15px;
+        }
+
+        .offcanvas-close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+        }
+        /* end offcanvas section */
       
       
     </style>
@@ -359,9 +393,9 @@
                 <p class="new-price">Inclusive of all taxes</p>
             </div>
             <div class="d-grid gap-2 d-md-block ">
-               <a href="tel:+4733378901">
-                <button type="button" class="btn btn-md btn-outline-warning col-md-4">Order</button>
-               </a>
+               
+                <button type="button" class="btn btn-md btn-outline-warning col-md-4" onclick="openLoginForm()">Order</button>
+               
               </div> 
               <div class="accordion" id="accordionExample" style="margin-left: 20px; ">
                 <div class="accordion-item" >
@@ -545,6 +579,59 @@
         </li>
       </ul>
     </div>
+    <!-- Off-Canvas Login Form -->
+    <div class="offcanvas-center " id="offcanvasLogin">
+      <button type="button" class="offcanvas-close-btn" onclick="closeLoginForm()" aria-label="Close">&times;</button>
+      <h5 class="text-center mb-6">Login</h5>
+   <div class="row" >
+    <div class="col-md-6">
+      <div id="carouselExampleIndicators" class="carousel slide">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1720429447/Croma%20Assets/Communication/Mobiles/Images/307505_2_n76txj.png?tr=w-640" width="100%" class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="..." class="d-block w-100" alt="...">
+          </div>
+          <div class="carousel-item">
+            <img src="..." class="d-block w-100" alt="...">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h2>OnePlus Nord CE4 Lite 5G (8GB RAM, 256GB, Mega Blue)</h2>
+      <div class="ratings">
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star-o "></span>
+        <h1 class="price">₹8,999</h1> 
+        <p class="new-price">Inclusive of all taxes</p>
+    </div>
+    <div class="d-grid gap-2 d-md-block ">
+       
+        <button type="button" class="btn btn-md btn-outline-warning col-md-4" >Order</button>
+       
+      </div> 
+    </div>
+   </div>
+  </div>
+  <!-- ====end offcanvas ========== -->
     <footer class="py-5" style="padding: 20px;">
       <div class="row ftr">
         <div class="col-6 col-md-2 mb-3">
@@ -613,6 +700,15 @@
         </ul>
       </div>
     </footer>
+    <script>
+      function openLoginForm() {
+          document.getElementById('offcanvasLogin').classList.add('show');
+      }
+
+      function closeLoginForm() {
+          document.getElementById('offcanvasLogin').classList.remove('show');
+      }
+  </script>
     <script>
       document.addEventListener("DOMContentLoaded", function () {
         const themeToggle = document.querySelectorAll("[data-bs-theme-value]");
